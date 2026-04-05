@@ -1,0 +1,44 @@
+{
+  "clips": [
+    {
+      "id": "default_wikidata_countries",
+      "name": "Wikidata: Countries by Population",
+      "filename": "wikidata-countries-population.sparql",
+      "description": "Retrieves countries with their population data from Wikidata, ordered by population size",
+      "endpoint": "https://query.wikidata.org/sparql",
+      "queryType": "SELECT",
+      "tags": ["wikidata", "countries", "population", "select"],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "default_wikidata_simple",
+      "name": "Wikidata: Simple Example Query",
+      "filename": "wikidata-simple-example.sparql",
+      "description": "Simple example query to demonstrate basic Wikidata querying patterns",
+      "endpoint": "https://query.wikidata.org/sparql",
+      "queryType": "SELECT",
+      "tags": ["wikidata", "example", "simple", "select", "politicians"],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "default_basic_select",
+      "name": "Basic SELECT Query Template",
+      "filename": "basic-select-template.sparql",
+      "description": "Generic SPARQL SELECT template for exploring RDF datasets",
+      "endpoint": "generic",
+      "queryType": "SELECT",
+      "tags": ["template", "basic", "select", "generic"],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "default_wikidata_construct",
+      "name": "Wikidata: Countries RDF Graph (CONSTRUCT)",
+      "filename": "wikidata-countries-construct.sparql",
+      "description": "CONSTRUCT query that creates RDF graph from Wikidata for visualization",
+      "endpoint": "https://query.wikidata.org/sparql",
+      "queryType": "CONSTRUCT",
+      "tags": ["wikidata", "construct", "countries", "visualization", "rdf"],
+      "difficulty": "advanced"
+    }
+  ]
+}

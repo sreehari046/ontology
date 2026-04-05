@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout atuin
+        uses: actions/checkout@v4
+        with:
+          path: atuin
+      - name: Checkout evb
+        uses: actions/checkout@v4
+        with:
+          repository: danja/evb
+          path: evb
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+        working-directory: atuin
+      - name: Install evb dependency
+        run: npm install ../evb
+        working-directory: atuin
+      - name: Run tests
+        run: npm test
+        working-directory: atuin

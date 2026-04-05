@@ -1,0 +1,1334 @@
+@prefix : <urn:absolute:h/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <urn:absolute:h/> .
+
+<http://www.iish.org/ontology/vrukshaayurveda> rdf:type owl:Ontology ;
+                                                owl:versionIRI <http://www.iish.org/ontology/vrukshaayurveda/1.0> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.iish.org/ontology/vrukshaayurveda#auspiciousUnder
+:auspiciousUnder rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :PlantingPractice ;
+                 rdfs:range :Nakshatra ;
+                 rdfs:comment "This planting practice is auspicious when performed under this nakshatra" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#growsIn
+:growsIn rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Plant ;
+         rdfs:range :Soil .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasDisease
+:hasDisease rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Plant ;
+            rdfs:range :Disease ;
+            rdfs:comment "This plant suffers from the following disease" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasModernScientificNote
+:hasModernScientificNote rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain :VrukshaayurvedaEntity ;
+                         rdfs:range :ModernScientificNote ;
+                         rdfs:comment "This ancient concept has the following modern scientific explanation" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasSymptom
+:hasSymptom rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Disease ;
+            rdfs:range :Symptom ;
+            rdfs:comment "This disease shows the following visible symptom" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#irrigatedInSeason
+:irrigatedInSeason rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :PlantingPractice ;
+                   rdfs:range :Season ;
+                   rdfs:comment "Irrigation schedule to be followed in this season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#occursIn
+:occursIn rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:range :Tree ;
+          rdfs:comment "This symptom occurs in this plant/tree" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#performedWithRitual
+:performedWithRitual rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :PlantingPractice ;
+                     rdfs:range :Ritual ;
+                     rdfs:comment "This planting practice must be performed along with this ritual" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#plantedInSeason
+:plantedInSeason rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Plant ;
+                 rdfs:range :Season ;
+                 rdfs:comment "Planting or grafting of this plant should be done in this season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#recommendedFor
+:recommendedFor rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Plant ;
+                rdfs:range :Location ;
+                rdfs:comment "This plant is specially recommended for this location" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#suitableForLocation
+:suitableForLocation rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Plant ;
+                     rdfs:range :Location ;
+                     rdfs:comment "This plant is recommended for planting in this specific location (park, lake bank, wetland)" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#treatedBy
+:treatedBy rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Disease ;
+           rdfs:range :Material ;
+           rdfs:comment "The disease is cured by this treatment technique" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#usesMaterial
+:usesMaterial rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :TreatmentTechnique ;
+              rdfs:range :Material ;
+              rdfs:comment "This treatment technique requires or uses this material" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#usesSubMaterial
+:usesSubMaterial rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Material ;
+                 rdfs:range :Material ;
+                 rdfs:comment "This material is prepared using or contains these sub-materials" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasBookPageReference
+:hasBookPageReference rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :VrukshaayurvedaEntity ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "DEPRECATED Page number in Dr. N. Gopalakrishnan’s Vrukshaayurveda book" ;
+                      owl:deprecated "true"^^xsd:boolean .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasEnglishName
+:hasEnglishName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :VrukshaayurvedaEntity ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Common English or botanical name" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasModernExplanation
+:hasModernExplanation rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :VrukshaayurvedaEntity ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Short modern scientific explanation or parallel" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasSanskritName
+:hasSanskritName rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :VrukshaayurvedaEntity ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Original Sanskrit name of the entity as given in the book" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#hasVerseReference
+:hasVerseReference rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :VrukshaayurvedaEntity ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Corresponding Sanskrit verse number from Bṛhat Saṃhitā Chapter 55" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.iish.org/ontology/vrukshaayurveda#AnimalProduct
+:AnimalProduct rdf:type owl:Class ;
+               rdfs:subClassOf :Material ;
+               rdfs:comment "Animal-derived products including Gomaya (cow dung), Kṣīra (milk), Ghṛta (ghee) and meat/fish" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Creeper
+:Creeper rdf:type owl:Class ;
+         rdfs:subClassOf :Plant ;
+         rdfs:comment "Climbing plants suitable for initial planting in parks and dwellings (e.g. Priyaṅgu)" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Disease
+:Disease rdf:type owl:Class ;
+         rdfs:subClassOf :VrukshaayurvedaEntity ;
+         rdfs:comment "Plant diseases caused by climatic factors, overcrowding, shade or animal disturbance" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#FermentedMixture
+:FermentedMixture rdf:type owl:Class ;
+                  rdfs:subClassOf :Material ;
+                  rdfs:comment "Special 7-night fermented broths made with dung, grains, meat and fish for continuous flowering and fruiting" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Grain
+:Grain rdf:type owl:Class ;
+       rdfs:subClassOf :Material ;
+       rdfs:comment "Pulses and grains such as Til (sesame), Māṣa (black gram), Mudga (green gram) and Yava (barley) used for soil and seed treatment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Location
+:Location rdf:type owl:Class ;
+          rdfs:subClassOf :VrukshaayurvedaEntity ;
+          rdfs:comment "Suitable geographical locations for planting such as lake/reservoir banks (jala-prānta), parks (ārāma) and low-lying wet lands (anūpa)" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Material
+:Material rdf:type owl:Class ;
+          rdfs:subClassOf :VrukshaayurvedaEntity ;
+          rdfs:comment "All natural substances and ingredients used in planting, treatment, soil improvement and seed enhancement" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#ModernScientificNote
+:ModernScientificNote rdf:type owl:Class ;
+                      rdfs:subClassOf :VrukshaayurvedaEntity ;
+                      rdfs:comment "Contemporary scientific explanations and parallels (e.g. beneficial microbes in cow dung, organic nitrogen sources, grafting physiology, bio-amendments) for the ancient practices" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Nakshatra
+:Nakshatra rdf:type owl:Class ;
+           rdfs:subClassOf :VrukshaayurvedaEntity ;
+           rdfs:comment "Auspicious lunar mansions (Dhruva group, Mṛdu group, Mūla, Viśākhā, Puṣya, Śravaṇa, Aśvinī, Hasta etc.) recommended for planting and sowing" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Plant
+:Plant rdf:type owl:Class ;
+       rdfs:subClassOf :VrukshaayurvedaEntity ;
+       rdfs:comment "All living plants, trees, creepers and shrubs discussed in Vrukshaayurveda for aesthetic beauty, medicinal value and economic utility" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PlantMaterial
+:PlantMaterial rdf:type owl:Class ;
+               rdfs:subClassOf :Material ;
+               rdfs:comment "Herbal and plant-based materials such as Vidanga, Aṅgola, Uśīra and Haridrā" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PlantingPractice
+:PlantingPractice rdf:type owl:Class ;
+                  rdfs:subClassOf :VrukshaayurvedaEntity ;
+                  rdfs:comment "Rules for spacing (12–20 hastas), directional planting, seasonal irrigation and grafting techniques" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Ritual
+:Ritual rdf:type owl:Class ;
+        rdfs:subClassOf :VrukshaayurvedaEntity ;
+        rdfs:comment "Pre-planting purification and worship practices including bathing, tree worship and application of medicated pastes" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Season
+:Season rdf:type owl:Class ;
+        rdfs:subClassOf :VrukshaayurvedaEntity ;
+        rdfs:comment "Six seasons (ṛtu) and their specific influence on planting, grafting and irrigation schedules" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Shrub
+:Shrub rdf:type owl:Class ;
+       rdfs:subClassOf :Plant ;
+       rdfs:comment "Bushy plants included in the Vrukshaayurveda classification" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Soil
+:Soil rdf:type owl:Class ;
+      rdfs:subClassOf :VrukshaayurvedaEntity ;
+      rdfs:comment "A plant grows in this type of soil after proper preparation" ,
+                   "Types of soil and ancient bio-amendment techniques for making hard laterite soil soft and fertile" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Symptom
+:Symptom rdf:type owl:Class ;
+         rdfs:subClassOf :VrukshaayurvedaEntity ;
+         rdfs:comment "Visible signs of plant disorders such as pale leaves (pāṇḍupatratā), wilting, absence of shoots, branch drying and bleeding sores" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#TreatmentTechnique
+:TreatmentTechnique rdf:type owl:Class ;
+                    rdfs:subClassOf :VrukshaayurvedaEntity ;
+                    rdfs:comment "All ancient methods of propagation, disease management, soil preparation, grafting, seed treatment and rejuvenation described in the text" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Tree
+:Tree rdf:type owl:Class ;
+      rdfs:subClassOf :Plant ;
+      rdfs:comment "Woody perennial plants recommended for parks, gardens, wetlands and fruit production" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#VrukshaayurvedaEntity
+:VrukshaayurvedaEntity rdf:type owl:Class ;
+                       rdfs:comment "Root class containing all concepts from the 55th chapter (Vrukshaayurveda) of Varahamihira’s Bṛhat Saṃhitā (505 AD) with modern scientific annotations" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Angola
+:Angola rdf:type owl:NamedIndividual ,
+                 :PlantMaterial ;
+        :hasEnglishName "Alangium" ;
+        :hasSanskritName "angola" ;
+        rdfs:comment "Juice for 100× seed treatment" ;
+        rdfs:label "Angola" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Anupa
+:Anupa rdf:type owl:NamedIndividual ,
+                :Location ;
+       :plantedInSeason :Varsha ;
+       :suitableForLocation :Arjuna ,
+                            :Jambu ,
+                            :Kadamba ,
+                            :Udumbara ;
+       :hasEnglishName "Wetland" ;
+       :hasSanskritName "Anupa" ;
+       rdfs:comment "Low-lying wet lands for specific trees" ;
+       rdfs:label "Wetland" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Apravala
+:Apravala rdf:type owl:NamedIndividual ,
+                   :Disease ;
+          :hasSymptom :NoShoots ;
+          :occursIn :Panasa ;
+          :treatedBy :Kshira ,
+                     :Vidanga ;
+          :hasEnglishName "No New Shoots" ;
+          :hasSanskritName "Apravala" ;
+          rdfs:comment "Absence or sparsity of new shoots" ;
+          rdfs:label "No New Shoots" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Arishta
+:Arishta rdf:type owl:NamedIndividual ,
+                  :Tree ;
+         :growsIn :MellowFertileSoil ;
+         :plantedInSeason :Varsha ;
+         :suitableForLocation :Park ;
+         :hasEnglishName "Neem" ;
+         :hasSanskritName "arishta" ;
+         rdfs:comment "Recommended first tree for parks/gardens; medicinal; modern bio-pesticide" ;
+         rdfs:label "Neem" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Arjuna
+:Arjuna rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :WetLowlandSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Arjuna" ;
+        :hasSanskritName "arjuna" ;
+        rdfs:comment "Wet soil/lowland tree" ;
+        rdfs:label "Arjuna" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Ashoka
+:Ashoka rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :MellowFertileSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Park ;
+        :hasEnglishName "Ashoka" ;
+        :hasSanskritName "ashoka" ;
+        rdfs:comment "Beautiful and medicinal tree for gardens/houses" ;
+        rdfs:label "Ashoka" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Ashvini
+:Ashvini rdf:type owl:NamedIndividual ,
+                  :Nakshatra ;
+         :auspiciousUnder :BathingTree ,
+                          :DirectionalPlanting ,
+                          :Panasa ;
+         :hasEnglishName "Ashvini" ;
+         :hasSanskritName "Ashvini" ;
+         rdfs:comment "Auspicious for planting" ;
+         rdfs:label "Ashvini" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Atimuktaka
+:Atimuktaka rdf:type owl:NamedIndividual ,
+                     :Tree ;
+            :growsIn :MellowFertileSoil ;
+            :plantedInSeason :Varsha ;
+            :suitableForLocation :Park ;
+            :hasEnglishName "Atimuktaka" ;
+            :hasSanskritName "atimuktaka" ;
+            rdfs:comment "Planting by roots/branches" ;
+            rdfs:label "Atimuktaka" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#AvataPreparation
+:AvataPreparation rdf:type owl:NamedIndividual ,
+                           :TreatmentTechnique ;
+                  :plantedInSeason :Varsha ;
+                  :usesMaterial :Gomaya ,
+                                :MamsaMatsya ;
+                  :hasEnglishName "Pit Preparation" ;
+                  :hasSanskritName "avataPreparation" ;
+                  rdfs:comment "Layered organic pit for seeds" ;
+                  rdfs:label "Pit Preparation" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#BathingTree
+:BathingTree rdf:type owl:NamedIndividual ,
+                      :Ritual ;
+             :performedWithRitual :Jambu ,
+                                  :Kadali ;
+             :hasEnglishName "Bathing the Tree" ;
+             :hasSanskritName "tarasnana" ;
+             rdfs:comment "Bathing the tree with medicated water" ;
+             rdfs:label "Bathing the Tree" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Bijapura
+:Bijapura rdf:type owl:NamedIndividual ,
+                   :Tree ;
+          :growsIn :MellowFertileSoil ;
+          :plantedInSeason :Varsha ;
+          :suitableForLocation :Park ;
+          :hasEnglishName "Citron" ;
+          :hasSanskritName "bijapura" ;
+          rdfs:comment "Fruit tree; wet soil" ;
+          rdfs:label "Citron" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#BranchWilting
+:BranchWilting rdf:type owl:NamedIndividual ,
+                        :Symptom ;
+               :hasDisease :BranchWilting ;
+               :occursIn :Jambu ,
+                         :Kadali ;
+               :treatedBy :Vidanga ;
+               :hasEnglishName "BranchWilting" ;
+               :hasSanskritName "shakhashosha" ;
+               rdfs:comment "Branches drying or wilting" ;
+               rdfs:label "BranchWilting" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#CowDungEnrichedSoil
+:CowDungEnrichedSoil rdf:type owl:NamedIndividual ,
+                              :Soil ;
+                     :growsIn :Kadali ;
+                     :hasEnglishName "Cow Dung Enriched Soil" ;
+                     :hasSanskritName "gomaya purna mrttika" ;
+                     rdfs:comment "Soil enriched with cow dung for microbial protection and nutrients" ;
+                     rdfs:label "Cow Dung Enriched Soil" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#CowDungMicrobes
+:CowDungMicrobes rdf:type owl:NamedIndividual ,
+                          :ModernScientificNote ;
+                 :hasModernScientificNote :Gomaya ,
+                                          :Kandaroapana ,
+                                          :SaptaRatroshita ;
+                 :hasEnglishName "Cow Dung Microbes" ;
+                 :hasSanskritName "gomaya microbes" ;
+                 rdfs:comment "Beneficial microorganisms in cow dung act as bio-control agents and protect against pathogens" ;
+                 rdfs:label "Cow Dung Microbes" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Dadima
+:Dadima rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :WetLowlandSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Pomegranate" ;
+        :hasSanskritName "dadima" ;
+        rdfs:comment "Fruit tree; wet soil" ;
+        rdfs:label "Pomegranate" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Dhatri
+:Dhatri rdf:type owl:NamedIndividual ,
+                 :PlantMaterial ;
+        :hasEnglishName "Amla" ;
+        :hasSanskritName "dhatri" ;
+        rdfs:comment "Root used in seed decoction" ;
+        rdfs:label "Amla" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#DirectionalPlanting
+:DirectionalPlanting rdf:type owl:NamedIndividual ,
+                              :PlantingPractice ;
+                     :auspiciousUnder :Ashvini ;
+                     :performedWithRitual :TreeWorship ;
+                     :plantedInSeason :Varsha ;
+                     :hasEnglishName "Directional Planting" ;
+                     :hasSanskritName "disha ropan" ;
+                     rdfs:comment "Plant in auspicious directions (east, north)" ;
+                     rdfs:label "Directional Planting" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Draksha
+:Draksha rdf:type owl:NamedIndividual ,
+                  :Tree ;
+         :growsIn :MellowFertileSoil ;
+         :plantedInSeason :Varsha ;
+         :suitableForLocation :Park ;
+         :hasEnglishName "Grapes" ;
+         :hasSanskritName "draksha" ;
+         rdfs:comment "Fruit creeper; wet soil" ;
+         rdfs:label "Grapes" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#DungGrainContinousFruit
+:DungGrainContinousFruit rdf:type owl:NamedIndividual ,
+                                  :FermentedMixture ;
+                         :hasEnglishName "Dung-Grain Continuous Fruit Mix" ;
+                         :hasSanskritName "sakrit dhanya phalavarna" ;
+                         rdfs:comment "Fermented broth with dung, grains and meat for non-stop fruiting" ;
+                         rdfs:label "Dung-Grain Continuous Fruit Mix" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Fumigation
+:Fumigation rdf:type owl:NamedIndividual ,
+                     :TreatmentTechnique ;
+            :plantedInSeason :Varsha ;
+            :usesMaterial :Haridra ;
+            :hasEnglishName "Fumigation" ;
+            :hasSanskritName "dhoopana" ;
+            rdfs:comment "Turmeric fumigation for seeds" ;
+            rdfs:label "Fumigation" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Ghrita
+:Ghrita rdf:type owl:NamedIndividual ,
+                 :AnimalProduct ;
+        :hasEnglishName "Ghee" ;
+        :hasSanskritName "ghrita" ;
+        rdfs:comment "Antimicrobial coating for grafting" ;
+        rdfs:label "Ghee" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Gomaya
+:Gomaya rdf:type owl:NamedIndividual ,
+                 :AnimalProduct ;
+        :hasEnglishName "Cow dung" ;
+        :hasSanskritName "gomaya" ;
+        rdfs:comment "Excellent source of beneficial microbes" ;
+        rdfs:label "Cow Dung" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#GraftingPhysiology
+:GraftingPhysiology rdf:type owl:NamedIndividual ,
+                             :ModernScientificNote ;
+                    :hasModernScientificNote :Gomaya ,
+                                             :Kandaroapana ,
+                                             :Kshira ;
+                    :hasEnglishName "Grafting Physiology" ;
+                    :hasSanskritName "kandaroapana physiology" ;
+                    rdfs:comment "Season-specific scion treatment aligns with modern grafting techniques (callus formation)" ;
+                    rdfs:label "Grafting Physiology" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Grishma
+:Grishma rdf:type owl:NamedIndividual ,
+                  :Season ;
+         :irrigatedInSeason :SummerIrrigation ;
+         :plantedInSeason :ShataAngolaTreatment ;
+         :hasEnglishName "Summer Season" ;
+         :hasSanskritName "Grishma" ;
+         rdfs:comment "Grishma - hot season, twice daily irrigation" ;
+         rdfs:label "Summer Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#HardLateriteSoil
+:HardLateriteSoil rdf:type owl:NamedIndividual ,
+                           :Soil ;
+                  :growsIn :Arishta ,
+                           :Ashoka ,
+                           :SesameSoftenedSoil ;
+                  :hasEnglishName "Hard Laterite Soil" ;
+                  :hasSanskritName "kathina laterite mrttika" ;
+                  rdfs:comment "Hard, rocky or lateritic soil — needs softening before planting" ;
+                  rdfs:label "Hard Laterite Soil" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Haridra
+:Haridra rdf:type owl:NamedIndividual ,
+                  :PlantMaterial ;
+         :hasEnglishName "Turmeric" ;
+         :hasSanskritName "haridra" ;
+         rdfs:comment "Used in fumigation" ;
+         rdfs:label "Turmeric" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Hasta
+:Hasta rdf:type owl:NamedIndividual ,
+                :Nakshatra ;
+       :auspiciousUnder :Dadima ,
+                        :NakshatraTiming ,
+                        :SaptaRatroshita ;
+       :hasEnglishName "Hasta" ;
+       :hasSanskritName "Hasta" ;
+       rdfs:comment "Auspicious for planting" ;
+       rdfs:label "Hasta" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Hemanta
+:Hemanta rdf:type owl:NamedIndividual ,
+                  :Season ;
+         :irrigatedInSeason :WinterIrrigation ;
+         :plantedInSeason :Fumigation ;
+         :hasEnglishName "Winter Season" ;
+         :hasSanskritName "Hemanta" ;
+         rdfs:comment "Hemanta - cold season, alternate day irrigation" ;
+         rdfs:label "Winter Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#JalaPranta
+:JalaPranta rdf:type owl:NamedIndividual ,
+                     :Location ;
+            :performedWithRitual :BathingTree ;
+            :suitableForLocation :Kadali ,
+                                 :Panasa ;
+            :hasEnglishName "Lake Bank" ;
+            :hasSanskritName "JalaPranta" ;
+            rdfs:comment "Banks of lakes or reservoirs for shady trees" ;
+            rdfs:label "Lake Bank" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Jambu
+:Jambu rdf:type owl:NamedIndividual ,
+                :Tree ;
+       :growsIn :WetLowlandSoil ;
+       :plantedInSeason :Varsha ;
+       :suitableForLocation :Anupa ;
+       :hasEnglishName "Rose Apple" ;
+       :hasSanskritName "jambu" ;
+       rdfs:comment "Suitable for wet soil" ;
+       rdfs:label "Rose Apple" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Kadali
+:Kadali rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Banana" ;
+        :hasSanskritName "kadali" ;
+        rdfs:comment "Fruit tree; planting by roots/branches" ;
+        rdfs:label "Banana" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Kadamba
+:Kadamba rdf:type owl:NamedIndividual ,
+                  :Tree ;
+         :growsIn :WetLowlandSoil ;
+         :plantedInSeason :Varsha ;
+         :suitableForLocation :Anupa ;
+         :hasEnglishName "Kadamba" ;
+         :hasSanskritName "kadamba" ;
+         rdfs:comment "Wet soil; ornamental tree" ;
+         rdfs:label "Kadamba" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Kandaroapana
+:Kandaroapana rdf:type owl:NamedIndividual ,
+                       :TreatmentTechnique ;
+              :plantedInSeason :Shishira ,
+                               :Varsha ;
+              :usesMaterial :Ghrita ,
+                            :Gomaya ,
+                            :Kshira ;
+              :hasEnglishName "Grafting" ;
+              :hasSanskritName "kandaroapana" ;
+              rdfs:comment "Season-specific grafting method" ;
+              rdfs:label "Grafting" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Kapittha
+:Kapittha rdf:type owl:NamedIndividual ,
+                   :Tree ;
+          :growsIn :WetLowlandSoil ;
+          :plantedInSeason :Varsha ;
+          :suitableForLocation :Udyana ;
+          :hasEnglishName "Wood Apple" ;
+          :hasSanskritName "kapittha" ;
+          rdfs:comment "Difficult seed; special milk treatment for germination" ;
+          rdfs:label "Wood Apple" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#KarakaJala
+:KarakaJala rdf:type owl:NamedIndividual ,
+                     :TreatmentTechnique ;
+            :plantedInSeason :Varsha ;
+            :usesMaterial :KarakaJala ;
+            :hasEnglishName "Hailstone Cold Shock" ;
+            :hasSanskritName "KarakaJala" ;
+            rdfs:comment "Cold shock for fast germination" ;
+            rdfs:label "Hailstone Cold Shock" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Kshira
+:Kshira rdf:type owl:NamedIndividual ,
+                 :AnimalProduct ;
+        :hasEnglishName "Milk" ;
+        :hasSanskritName "kshira" ;
+        rdfs:comment "Nitrogen and protein source for sprays" ;
+        rdfs:label "Milk" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Lakuca
+:Lakuca rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :WetLowlandSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Monkey Jack" ;
+        :hasSanskritName "lakuca" ;
+        rdfs:comment "Fruit tree; wet soil" ;
+        rdfs:label "Monkey Jack" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#LayeredOrganicPit
+:LayeredOrganicPit rdf:type owl:NamedIndividual ,
+                            :Soil ;
+                   :usesMaterial :MamsaMatsya ;
+                   :hasEnglishName "Layered Organic Pit" ;
+                   :hasSanskritName "avata mrttika purna" ;
+                   rdfs:comment "Pit filled with layers of pulses, fish infusion, dung for rich soil" ;
+                   rdfs:label "Layered Organic Pit" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MamsaFishPitFerment
+:MamsaFishPitFerment rdf:type owl:NamedIndividual ,
+                              :FermentedMixture ;
+                     :hasEnglishName "Meat-Fish Layered Pit Ferment" ;
+                     :hasSanskritName "mamsa matsya avata" ;
+                     rdfs:comment "Layered pit with pulses + fish infusion + meat for rich organic nitrogen bed" ;
+                     rdfs:label "Meat-Fish Layered Pit Ferment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MamsaMatsya
+:MamsaMatsya rdf:type owl:NamedIndividual ,
+                      :AnimalProduct ;
+             :hasEnglishName "Meat and Fish" ;
+             :hasSanskritName "mamsa_matsya" ;
+             rdfs:comment "Used in 7-night fermented broth" ;
+             rdfs:label "Meat and Fish" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MedicatedPasteApplication
+:MedicatedPasteApplication rdf:type owl:NamedIndividual ,
+                                    :Ritual ;
+                           :performedWithRitual :Arjuna ,
+                                                :Kandaroapana ,
+                                                :Kapittha ;
+                           :hasEnglishName "Medicated Paste Application" ;
+                           :hasSanskritName "anulepana" ;
+                           rdfs:comment "Applying medicated paste on the tree" ;
+                           rdfs:label "Medicated Paste Application" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MellowFertileSoil
+:MellowFertileSoil rdf:type owl:NamedIndividual ,
+                            :Soil ;
+                   :growsIn :Arishta ,
+                            :Dadima ,
+                            :Panasa ;
+                   :hasEnglishName "Mellow Fertile Soil" ;
+                   :hasSanskritName "mridu sarala mrttika" ;
+                   rdfs:comment "Soft, fertile, good soil — ideal for trees" ;
+                   rdfs:label "Mellow Fertile Soil" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MilkDecoction
+:MilkDecoction rdf:type owl:NamedIndividual ,
+                        :TreatmentTechnique ;
+               :plantedInSeason :Varsha ;
+               :usesMaterial :Dhatri ,
+                             :Kshira ;
+               :hasEnglishName "MilkDecoction" ;
+               :hasSanskritName "ksheerade coction" ;
+               rdfs:comment "Milk + herbal roots for seed treatment" ;
+               rdfs:label "MilkDecoction" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#MilkNitrogenSource
+:MilkNitrogenSource rdf:type owl:NamedIndividual ,
+                             :ModernScientificNote ;
+                    :hasModernScientificNote :Kshira ,
+                                             :MilkDecoction ;
+                    :hasEnglishName "Milk as Nitrogen Source" ;
+                    :hasSanskritName "kshira nitrogen" ;
+                    rdfs:comment "Milk sprays provide protein and nitrogen for plant rejuvenation" ;
+                    rdfs:label "Milk as Nitrogen Source" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Mula
+:Mula rdf:type owl:NamedIndividual ,
+               :Nakshatra ;
+      :auspiciousUnder :Arishta ,
+                       :AvataPreparation ,
+                       :TwentyHastaSpacing ;
+      :hasEnglishName "Mula" ;
+      :hasSanskritName "Mula" ;
+      rdfs:comment "Auspicious for planting" ;
+      rdfs:label "Mula" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#NakshatraTiming
+:NakshatraTiming rdf:type owl:NamedIndividual ,
+                          :PlantingPractice ;
+                 :auspiciousUnder :Pushya ,
+                                  :Shravana ;
+                 :plantedInSeason :Varsha ;
+                 :hasEnglishName "Nakshatran Timing" ;
+                 :hasSanskritName "nakshatra kala" ;
+                 rdfs:comment "Planting under auspicious nakshatras like Pushya" ;
+                 rdfs:label "Nakshatra-Based Timing" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Naktamala
+:Naktamala rdf:type owl:NamedIndividual ,
+                    :Tree ;
+           :growsIn :WetLowlandSoil ;
+           :plantedInSeason :Varsha ;
+           :suitableForLocation :Anupa ;
+           :hasEnglishName "Pongam" ;
+           :hasSanskritName "naktamala" ;
+           rdfs:comment "Wet soil/lowland tree" ;
+           rdfs:label "Pongam" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#NoShoots
+:NoShoots rdf:type owl:NamedIndividual ,
+                   :Symptom ;
+          :hasDisease :Apravala ;
+          :occursIn :Dadima ,
+                    :Panasa ;
+          :treatedBy :Vidanga ;
+          :hasEnglishName "No New Shoots" ;
+          :hasSanskritName "apravala" ;
+          rdfs:comment "Failure to produce new shoots or leaves" ;
+          rdfs:label "No New Shoots" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#OozingSap
+:OozingSap rdf:type owl:NamedIndividual ,
+                    :Symptom ;
+           :hasDisease :OozingSap ;
+           :occursIn :Arjuna ,
+                     :Kapittha ;
+           :treatedBy :Vidanga ;
+           :hasEnglishName "OozingSap" ;
+           :hasSanskritName "rasashruti" ;
+           rdfs:comment "Tree oozing sap or bleeding from wounds" ;
+           rdfs:label "OozingSap" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#OrganicNitrogenFerment
+:OrganicNitrogenFerment rdf:type owl:NamedIndividual ,
+                                 :ModernScientificNote ;
+                        :hasModernScientificNote :AvataPreparation ,
+                                                 :MamsaMatsya ,
+                                                 :SaptaRatroshita ;
+                        :hasEnglishName "Organic Nitrogen from Ferments" ;
+                        :hasSanskritName "kshira mamsa nitrogen" ;
+                        rdfs:comment "Ferments with meat/fish provide readily available organic nitrogen for continuous fruiting" ;
+                        rdfs:label "Organic Nitrogen from Ferments" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PaleLeaves
+:PaleLeaves rdf:type owl:NamedIndividual ,
+                     :Symptom ;
+            :hasDisease :PanduPatrata ;
+            :occursIn :Arishta ,
+                      :Ashoka ;
+            :treatedBy :Vidanga ;
+            :hasEnglishName "PaleLeaves" ;
+            :hasSanskritName "pandupatra" ;
+            rdfs:comment "Leaves turning pale or white due to stress" ;
+            rdfs:label "PaleLeaves" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Panasa
+:Panasa rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :WetLowlandSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Jackfruit" ;
+        :hasSanskritName "panasa" ;
+        rdfs:comment "Fruit + shade tree; planting with cow-dung" ;
+        rdfs:label "Jackfruit" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PanduPatrata
+:PanduPatrata rdf:type owl:NamedIndividual ,
+                       :Disease ;
+              :hasSymptom :PanduPatrata ;
+              :occursIn :Arishta ;
+              :treatedBy :Kshira ,
+                         :Vidanga ;
+              :hasEnglishName "Pale Leaves" ;
+              :hasSanskritName "PanduPatrata" ;
+              rdfs:comment "Pale or yellow leaves due to cold, heat or stress" ;
+              rdfs:label "Pale Leaves" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Park
+:Park rdf:type owl:NamedIndividual ,
+               :Location ;
+      :performedWithRitual :PrePlantingPurification ,
+                           :TreeWorship ;
+      :suitableForLocation :Arishta ,
+                           :Punnaga ,
+                           :Sirisha ;
+      :hasEnglishName "Park" ;
+      :hasSanskritName "arama" ;
+      rdfs:comment "Parks and gardens for beauty and utility" ;
+      rdfs:label "Park" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PrePlantingPurification
+:PrePlantingPurification rdf:type owl:NamedIndividual ,
+                                  :Ritual ;
+                         :performedWithRitual :Arishta ,
+                                              :Ashoka ,
+                                              :Varsha ;
+                         :hasEnglishName "PrePlantingPurification" ;
+                         :hasSanskritName "PrePlantingPurification" ;
+                         rdfs:comment "Bathing oneself before planting" ;
+                         rdfs:label "PrePlantingPurification" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#PrePlantingRitual
+:PrePlantingRitual rdf:type owl:NamedIndividual ,
+                            :PlantingPractice ;
+                   :auspiciousUnder :Pushya ;
+                   :performedWithRitual :Arishta ,
+                                        :Panasa ;
+                   :hasEnglishName "Pre-Planting Ritual" ;
+                   :hasSanskritName "purva karma" ;
+                   rdfs:comment "Bathing, worship and medicated paste before planting" ;
+                   rdfs:label "Pre-Planting Ritual" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Priyangu
+:Priyangu rdf:type owl:NamedIndividual ,
+                   :Tree ;
+          :growsIn :MellowFertileSoil ;
+          :plantedInSeason :Varsha ;
+          :suitableForLocation :Park ;
+          :hasEnglishName "Priyangu" ;
+          :hasSanskritName "priyangu" ;
+          rdfs:comment "Creeper for gardens/houses; prosperity" ;
+          rdfs:label "Priyangu" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Punnaga
+:Punnaga rdf:type owl:NamedIndividual ,
+                  :Tree ;
+         :growsIn :MellowFertileSoil ;
+         :plantedInSeason :Varsha ;
+         :suitableForLocation :Park ;
+         :hasEnglishName "Cobra Saffron" ;
+         :hasSanskritName "Punnaga" ;
+         rdfs:comment "Recommended for parks and prosperity" ;
+         rdfs:label "Cobra Saffron" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Pushya
+:Pushya rdf:type owl:NamedIndividual ,
+                 :Nakshatra ;
+        :auspiciousUnder :Arishta ,
+                         :Kandaroapana ,
+                         :PrePlantingRitual ,
+                         :TwentyHastaSpacing ;
+        :hasEnglishName "Pushya" ;
+        :hasSanskritName "Pushya" ;
+        rdfs:comment "Auspicious for planting" ;
+        rdfs:label "Pushya" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#RainyIrrigation
+:RainyIrrigation rdf:type owl:NamedIndividual ,
+                          :PlantingPractice ;
+                 :irrigatedInSeason :Varsha ;
+                 :plantedInSeason :Kandaroapana ;
+                 :hasEnglishName "Rainy Season Irrigation" ;
+                 :hasSanskritName "varsha sinchana" ;
+                 rdfs:comment "Rainy Season Irrigation" ;
+                 rdfs:label "Rainy Season Irrigation" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#RasaShruti
+:RasaShruti rdf:type owl:NamedIndividual ,
+                     :Disease ;
+            :hasSymptom :RasaShruti ;
+            :occursIn :Arjuna ;
+            :treatedBy :Kshira ,
+                       :Vidanga ;
+            :hasEnglishName "Bleeding Sores" ;
+            :hasSanskritName "RasaShruti" ;
+            rdfs:comment "Bleeding or oozing sores on tree" ;
+            rdfs:label "Bleeding Sores" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#SaptaRatroshita
+:SaptaRatroshita rdf:type owl:NamedIndividual ,
+                          :TreatmentTechnique ;
+                 :plantedInSeason :Varsha ;
+                 :usesMaterial :Gomaya ,
+                               :MamsaMatsya ,
+                               :Til ;
+                 :hasEnglishName "7-Night Ferment" ;
+                 :hasSanskritName "saptaratroshita" ;
+                 rdfs:comment "Fermented broth for continuous fruiting" ;
+                 rdfs:label "7-Night Ferment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#SaptaRatroshitaFerment
+:SaptaRatroshitaFerment rdf:type owl:NamedIndividual ,
+                                 :FermentedMixture ;
+                        :hasEnglishName "7-Night Dung Ferment" ;
+                        :hasSanskritName "saptaratroshita kinyam" ;
+                        rdfs:comment "7-day fermented mixture of goat/sheep dung + sesame + grains + meat/fish for continuous flowering & fruiting" ;
+                        rdfs:label "7-Night Dung Ferment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#SesameBioAmendment
+:SesameBioAmendment rdf:type owl:NamedIndividual ,
+                             :ModernScientificNote ;
+                    :hasModernScientificNote :HardLateriteSoil ,
+                                             :MellowFertileSoil ,
+                                             :Til ;
+                    :hasEnglishName "Sesame Soil Bio-Amendment" ;
+                    :hasSanskritName "til bioamendment" ;
+                    rdfs:comment "Growing and incorporating sesame increases soil mucilage, aeration, and water retention" ;
+                    rdfs:label "Sesame Soil Bio-Amendment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#SesameSoftenedSoil
+:SesameSoftenedSoil rdf:type owl:NamedIndividual ,
+                             :Soil ;
+                    :plantedInSeason :Varsha ;
+                    :usesMaterial :Til ;
+                    :hasEnglishName "Sesame-Softened Soil" ;
+                    :hasSanskritName "tila vapa mrttika" ;
+                    rdfs:comment "Hard soil softened by growing and incorporating sesame (til)" ;
+                    rdfs:label "Sesame-Softened Soil" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#ShakhaShosha
+:ShakhaShosha rdf:type owl:NamedIndividual ,
+                       :Disease ;
+              :hasSymptom :ShakhaShosha ;
+              :occursIn :Kadali ;
+              :treatedBy :Kshira ,
+                         :Vidanga ;
+              :hasEnglishName "Branch Drying" ;
+              :hasSanskritName "shakhaShosha" ;
+              rdfs:comment "Wilting or drying of branches" ;
+              rdfs:label "Branch Drying" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Sharad
+:Sharad rdf:type owl:NamedIndividual ,
+                 :Season ;
+        :irrigatedInSeason :RainyIrrigation ;
+        :plantedInSeason :SaptaRatroshita ;
+        :hasEnglishName "Post-Monsoon" ;
+        :hasSanskritName "Sharad" ;
+        rdfs:comment "Sharad - post-rainy season, as-needed irrigation" ;
+        rdfs:label "Post-Monsoon Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#ShataAngolaTreatment
+:ShataAngolaTreatment rdf:type owl:NamedIndividual ,
+                               :TreatmentTechnique ;
+                      :plantedInSeason :Varsha ;
+                      :usesMaterial :Angola ;
+                      :hasEnglishName "100× Angola Treatment" ;
+                      :hasSanskritName "ShataAngolaTreatment" ;
+                      rdfs:comment "Special seed treatment" ;
+                      rdfs:label "100× Angola Treatment" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Shishira
+:Shishira rdf:type owl:NamedIndividual ,
+                   :Season ;
+          :irrigatedInSeason :WinterIrrigation ;
+          :plantedInSeason :Kandaroapana ;
+          :hasEnglishName "Autumn Season" ;
+          :hasSanskritName "Shishira" ;
+          rdfs:comment "Shishira - cool season, unbranched scions for grafting" ;
+          rdfs:label "Autumn Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Shravana
+:Shravana rdf:type owl:NamedIndividual ,
+                   :Nakshatra ;
+          :auspiciousUnder :Ashoka ,
+                           :AvataPreparation ,
+                           :TreeWorship ;
+          :hasEnglishName "Shravana" ;
+          :hasSanskritName "Shravana" ;
+          rdfs:comment "Auspicious for planting" ;
+          rdfs:label "Shravana" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Sirisha
+:Sirisha rdf:type owl:NamedIndividual ,
+                  :Tree ;
+         :growsIn :MellowFertileSoil ;
+         :plantedInSeason :Varsha ;
+         :suitableForLocation :Park ;
+         :hasEnglishName "Siris" ;
+         :hasSanskritName "sirisha" ;
+         rdfs:comment "Park planting tree for prosperity" ;
+         rdfs:label "Siris" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#SummerIrrigation
+:SummerIrrigation rdf:type owl:NamedIndividual ,
+                           :PlantingPractice ;
+                  :irrigatedInSeason :Grishma ;
+                  :performedWithRitual :BathingTree ;
+                  :hasEnglishName "Summer Irrigation Schedule" ;
+                  :hasSanskritName "grishma sinchana" ;
+                  rdfs:comment "Irrigate twice daily in summer" ;
+                  rdfs:label "Summer Irrigation Schedule" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Til
+:Til rdf:type owl:NamedIndividual ,
+              :Grain ;
+     :hasEnglishName "Sesame" ;
+     :hasSanskritName "til" ;
+     rdfs:comment "Used to soften hard soil" ;
+     rdfs:label "Sesame" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#TreeWorship
+:TreeWorship rdf:type owl:NamedIndividual ,
+                      :Ritual ;
+             :performedWithRitual :Dadima ,
+                                  :Panasa ,
+                                  :Pushya ,
+                                  :Shravana ;
+             :hasEnglishName "TreeWorship" ;
+             :hasSanskritName "taropuja" ;
+             rdfs:comment "Worshipping the tree before planting" ;
+             rdfs:label "TreeWorship" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#TwelveHastaSpacing
+:TwelveHastaSpacing rdf:type owl:NamedIndividual ,
+                             :PlantingPractice ;
+                    :auspiciousUnder :Shravana ;
+                    :performedWithRitual :TreeWorship ;
+                    :plantedInSeason :Varsha ;
+                    :hasEnglishName "12 Hasta Spacing" ;
+                    :hasSanskritName "dvadasha hasta antara" ;
+                    rdfs:comment "Minimum spacing of 12 hastas (~18 ft) for smaller trees" ;
+                    rdfs:label "12 Hasta Spacing]" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#TwentyHastaSpacing
+:TwentyHastaSpacing rdf:type owl:NamedIndividual ,
+                             :PlantingPractice ;
+                    :auspiciousUnder :Pushya ;
+                    :performedWithRitual :PrePlantingPurification ;
+                    :plantedInSeason :Varsha ;
+                    :hasEnglishName "20 Hasta Spacing" ;
+                    :hasSanskritName "vimshatihasta antara" ;
+                    rdfs:comment "Ideal spacing of 20 hastas (~30 ft) between trees to avoid competition" ;
+                    rdfs:label "20 Hasta Spacing" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Udumbara
+:Udumbara rdf:type owl:NamedIndividual ,
+                   :Tree ;
+          :growsIn :WetLowlandSoil ;
+          :plantedInSeason :Varsha ;
+          :suitableForLocation :Anupa ;
+          :hasEnglishName "Cluster Fig" ;
+          :hasSanskritName "udumbara" ;
+          rdfs:comment "Wet soil; medicinal" ;
+          rdfs:label "Cluster Fig" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Udyana
+:Udyana rdf:type owl:NamedIndividual ,
+                 :Location ;
+        :performedWithRitual :MedicatedPasteApplication ;
+        :suitableForLocation :Bijapura ,
+                             :Kapittha ;
+        :hasEnglishName "Garden" ;
+        :hasSanskritName "Udyana" ;
+        rdfs:comment "Home gardens for medicinal and fruit trees" ;
+        rdfs:label "Garden" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Ushira
+:Ushira rdf:type owl:NamedIndividual ,
+                 :PlantMaterial ;
+        :hasEnglishName "Vetiver" ;
+        :hasSanskritName "ushira" ;
+        rdfs:comment "Used in grafting mixture" ;
+        rdfs:label "Vetiver" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Vanira
+:Vanira rdf:type owl:NamedIndividual ,
+                 :Tree ;
+        :growsIn :WetLowlandSoil ;
+        :plantedInSeason :Varsha ;
+        :suitableForLocation :Anupa ;
+        :hasEnglishName "Vanira" ;
+        :hasSanskritName "vanira" ;
+        rdfs:comment "Wet soil/lowland tree" ;
+        rdfs:label "Vanira" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Varsha
+:Varsha rdf:type owl:NamedIndividual ,
+                 :Season ;
+        :irrigatedInSeason :RainyIrrigation ;
+        :plantedInSeason :AvataPreparation ,
+                         :Kandaroapana ;
+        :hasEnglishName "Rainy Season" ;
+        :hasSanskritName "varsha" ;
+        rdfs:comment "Varsha - rainy season, best for grafting" ;
+        rdfs:label "Rainy Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Vasanta
+:Vasanta rdf:type owl:NamedIndividual ,
+                  :Season ;
+         :irrigatedInSeason :WinterIrrigation ;
+         :plantedInSeason :Kandaroapana ;
+         :hasEnglishName "Spring Season" ;
+         :hasSanskritName "Vasanta" ;
+         rdfs:comment "Vasanta - spring, sprouted scions for grafting" ;
+         rdfs:label "Spring Season" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Vetas
+:Vetas rdf:type owl:NamedIndividual ,
+                :Tree ;
+       :growsIn :MellowFertileSoil ;
+       :plantedInSeason :Varsha ;
+       :suitableForLocation :Park ;
+       :hasEnglishName "Cane" ;
+       :hasSanskritName "vetas" ;
+       rdfs:comment "Wet soil/lowland tree" ;
+       rdfs:label "Cane" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Vidanga
+:Vidanga rdf:type owl:NamedIndividual ,
+                  :PlantMaterial ;
+         :hasEnglishName "Vidanga" ;
+         :hasSanskritName "vidanga" ;
+         rdfs:comment "Antifungal in disease treatment" ;
+         rdfs:label "Vidanga" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#VidangaAntifungal
+:VidangaAntifungal rdf:type owl:NamedIndividual ,
+                            :ModernScientificNote ;
+                   :hasModernScientificNote :PanduPatrata ,
+                                            :Vidanga ;
+                   :hasEnglishName "Vidanga as Antifungal" ;
+                   :hasSanskritName "vidanga antifungal" ;
+                   rdfs:comment "Vidanga has natural antifungal properties for disease control" ;
+                   rdfs:label "Vidanga as Antifungal" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#Vishakha
+:Vishakha rdf:type owl:NamedIndividual ,
+                   :Nakshatra ;
+          :auspiciousUnder :Kandaroapana ,
+                           :Panasa ,
+                           :SaptaRatroshita ;
+          :hasEnglishName "Vishakha" ;
+          :hasSanskritName "Vishakha" ;
+          rdfs:comment "Auspicious for planting" ;
+          rdfs:label "Vishakha" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#WetLowlandSoil
+:WetLowlandSoil rdf:type owl:NamedIndividual ,
+                         :Soil ;
+                :growsIn :Arjuna ,
+                         :Jambu ,
+                         :Udumbara ;
+                :hasEnglishName "Wet Lowland Soil" ;
+                :hasSanskritName "anupa mrttika" ;
+                rdfs:comment "Low-lying wet soil suitable for trees like Arjuna, Kadamba" ;
+                rdfs:label "Wet Lowland Soil" .
+
+
+###  http://www.iish.org/ontology/vrukshaayurveda#WinterIrrigation
+:WinterIrrigation rdf:type owl:NamedIndividual ,
+                           :PlantingPractice ;
+                  :irrigatedInSeason :Hemanta ;
+                  :performedWithRitual :MedicatedPasteApplication ;
+                  :hasEnglishName "Winter Irrigation" ;
+                  :hasSanskritName "hemanta sinchana" ;
+                  rdfs:comment "Irrigate on alternate days in winter" ;
+                  rdfs:label "Winter Irrigation Schedule" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AnimalProduct
+                :FermentedMixture
+                :Grain
+                :PlantMaterial
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Creeper
+                :Shrub
+                :Tree
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
