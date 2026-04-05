@@ -12,7 +12,7 @@ const Chat = () => {
         setLoading(true);
         setResponse(null);
         try {
-            const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+            const API_BASE = process.env.REACT_APP_API_URL || '';
             const res = await axios.post(`${API_BASE}/api/chat`, { question });
             setResponse(res.data);
         } catch (err) {
