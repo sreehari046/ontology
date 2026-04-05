@@ -1,9 +1,8 @@
 FROM stain/jena-fuseki:latest
 
-# Copy the ontology data into the container
-COPY vrukshaayurveda.ttl /staging/data.ttl
+# Set an admin password so you can use the web interface
+ENV ADMIN_PASSWORD=admin
+ENV FUSEKI_DATASET_1=dsc
 
-# Overwrite the default startup command to explicitly create an in-memory DB 
-# named /dsc and load our .ttl file into it on every boot.
-CMD ["--mem", "--update", "--file", "/staging/data.ttl", "/dsc"]
+EXPOSE 3030
 
