@@ -12,7 +12,8 @@ const Chat = () => {
         setLoading(true);
         setResponse(null);
         try {
-            const res = await axios.post('http://localhost:3001/api/chat', { question });
+            const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+            const res = await axios.post(`${API_BASE}/api/chat`, { question });
             setResponse(res.data);
         } catch (err) {
             setResponse({ error: err.message });

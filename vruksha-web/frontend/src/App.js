@@ -5,7 +5,7 @@ import './App.css';
 import aboutImage from './assets/plant.png';          // about section image
 import heroImage from './assets/hero.png';     // hero background image
 
-const API_BASE = 'http://localhost:3001';
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);

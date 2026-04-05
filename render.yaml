@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ontology-backend
+    env: node
+    rootDir: vruksha-web/backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FUSEKI_URL
+        value: "https://ontology-database.onrender.com/dsc/query"
+
+  - type: web
+    name: ontology-database
+    env: docker
+    dockerfilePath: ./Dockerfile
