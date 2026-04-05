@@ -34,18 +34,41 @@ Data properties:
 - rdfs:comment
 
 === EXAMPLES OF QUESTION TO SPARQL ===
+Use these examples as a guide. Always include the PREFIX line.
+
 1. "What plants grow in wet lowland soil?"
    PREFIX : <urn:absolute:h/absolute:h/>
    SELECT ?plant ?name WHERE { :WetLowlandSoil :growsIn ?plant . OPTIONAL { ?plant :hasEnglishName ?name } }
 
-2. "How do I treat pale leaves on Neem?"
+2. "Which plants are suitable for wetlands?"
+   PREFIX : <urn:absolute:h/absolute:h/>
+   SELECT ?plant ?name WHERE { ?plant :suitableForLocation :Anupa . OPTIONAL { ?plant :hasEnglishName ?name } }
+
+3. "How do I treat pale leaves on Neem?"
    PREFIX : <urn:absolute:h/absolute:h/>
    SELECT ?material ?materialName WHERE { ?disease a :Disease ; :hasEnglishName "Pale Leaves" ; :occursIn :Arishta ; :treatedBy ?material . OPTIONAL { ?material :hasEnglishName ?materialName } }
 
+4. "What are the symptoms of PanduPatrata?"
+   PREFIX : <urn:absolute:h/absolute:h/>
+   SELECT ?symptom ?symptomName WHERE { ?disease a :Disease ; :hasSanskritName "PanduPatrata" ; :hasSymptom ?symptom . ?symptom a :Symptom . OPTIONAL { ?symptom :hasEnglishName ?symptomName } }
+
+5. "What materials are used for grafting?"
+   PREFIX : <urn:absolute:h/absolute:h/>
+   SELECT ?material ?name WHERE { :Kandaroapana :usesMaterial ?material . OPTIONAL { ?material :hasEnglishName ?name } }
+
+6. "Which nakshatras are auspicious for planting?"
+   PREFIX : <urn:absolute:h/absolute:h/>
+   SELECT DISTINCT ?nakshatra ?name WHERE { ?practice a :PlantingPractice ; :auspiciousUnder ?nakshatra . ?nakshatra a :Nakshatra . OPTIONAL { ?nakshatra :hasEnglishName ?name } }
+
+7. "What is the English name for Arishta?"
+   PREFIX : <urn:absolute:h/absolute:h/>
+   SELECT ?name WHERE { :Arishta :hasEnglishName ?name }
+
 === INSTRUCTIONS ===
-- Convert the user's question into a SPARQL query using the correct properties.
+- Convert the user's question into a SPARQL query using the correct properties and individuals as shown in the examples.
 - Always include the PREFIX line.
-- Return ONLY the SPARQL query, no explanations, no markdown.`;
+- Return ONLY the SPARQL query, no explanations, no markdown, no comments.
+`;
 
 async function askGroq(prompt, system, temperature = 0.1, maxTokens = 1000) {
     const GROQ_API_KEY = process.env.GROQ_API_KEY;
