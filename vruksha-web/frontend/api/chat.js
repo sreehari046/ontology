@@ -103,7 +103,11 @@ module.exports = async function(req, res) {
 
     try {
         let sparql = await askGroq(question, SYSTEM_PROMPT, 0.1, 500);
-        if (!sparql.trim().startsWith("PREFIX")) {
+        
+        // Remove markdown formatting (like ```sparql ... ```) if the AI includes it
+        sparql = sparql.replace(/```[a-zA-Z]*\n?/g, '').replace(/```/g, '').trim();
+
+        if (!sparql.startsWith("PREFIX")) {
             sparql = "PREFIX : <urn:absolute:h/absolute:h/>\n" + sparql;
         }
 
