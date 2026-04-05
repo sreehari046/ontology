@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const SYSTEM_PROMPT = `You are an expert in Vrukshaayurveda, the ancient Indian science of plant life. You convert user questions into precise SPARQL queries that can be run against the ontology. The ontology uses the namespace:
-PREFIX : <urn:absolute:h/absolute:h/>
+PREFIX : <urn:absolute:h/>
 
 === ONTOLOGY STRUCTURE ===
 Classes (with individuals noted):
@@ -37,31 +37,31 @@ Data properties:
 Use these examples as a guide. Always include the PREFIX line.
 
 1. "What plants grow in wet lowland soil?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?plant ?name WHERE { :WetLowlandSoil :growsIn ?plant . OPTIONAL { ?plant :hasEnglishName ?name } }
 
 2. "Which plants are suitable for wetlands?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?plant ?name WHERE { ?plant :suitableForLocation :Anupa . OPTIONAL { ?plant :hasEnglishName ?name } }
 
 3. "How do I treat pale leaves on Neem?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?material ?materialName WHERE { ?disease a :Disease ; :hasEnglishName "Pale Leaves" ; :occursIn :Arishta ; :treatedBy ?material . OPTIONAL { ?material :hasEnglishName ?materialName } }
 
 4. "What are the symptoms of PanduPatrata?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?symptom ?symptomName WHERE { ?disease a :Disease ; :hasSanskritName "PanduPatrata" ; :hasSymptom ?symptom . ?symptom a :Symptom . OPTIONAL { ?symptom :hasEnglishName ?symptomName } }
 
 5. "What materials are used for grafting?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?material ?name WHERE { :Kandaroapana :usesMaterial ?material . OPTIONAL { ?material :hasEnglishName ?name } }
 
 6. "Which nakshatras are auspicious for planting?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT DISTINCT ?nakshatra ?name WHERE { ?practice a :PlantingPractice ; :auspiciousUnder ?nakshatra . ?nakshatra a :Nakshatra . OPTIONAL { ?nakshatra :hasEnglishName ?name } }
 
 7. "What is the English name for Arishta?"
-   PREFIX : <urn:absolute:h/absolute:h/>
+   PREFIX : <urn:absolute:h/>
    SELECT ?name WHERE { :Arishta :hasEnglishName ?name }
 
 === INSTRUCTIONS ===
@@ -131,7 +131,7 @@ module.exports = async function(req, res) {
         sparql = sparql.replace(/```[a-zA-Z]*\n?/g, '').replace(/```/g, '').trim();
 
         if (!sparql.startsWith("PREFIX")) {
-            sparql = "PREFIX : <urn:absolute:h/absolute:h/>\n" + sparql;
+            sparql = "PREFIX : <urn:absolute:h/>\n" + sparql;
         }
 
         const fbResponse = await axios.post(FUSEKI_URL, sparql, {
