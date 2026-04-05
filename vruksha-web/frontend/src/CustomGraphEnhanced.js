@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as d3 from 'd3';
 
 // ------------------------------
@@ -122,6 +122,7 @@ const CustomGraphEnhanced = ({ endpoint }) => {
             }
         };
         loadData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [endpoint]);
 
     const processData = ({ tripleData, typeData, subclassData, commentData }) => {
@@ -415,6 +416,7 @@ const CustomGraphEnhanced = ({ endpoint }) => {
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            {loading && <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#48BB78', zIndex: 20}}>Loading Ontology Graph...</div>}
             <div style={{
                 position: 'absolute',
                 top: 10,
