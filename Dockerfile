@@ -23,4 +23,4 @@ COPY --chown=user:user vrukshaayurveda.ttl /home/user/data.ttl
 EXPOSE 7860
 
 # Start Fuseki strictly on port 7860 with the .ttl pre-loaded!
-CMD ["./fuseki-server", "--port", "7860", "--mem", "--update", "--file=/home/user/data.ttl", "/dsc"]
+CMD ["./fuseki-server", "--port", "7860", "--update", "--file=/home/user/data.ttl", "/dsc"]
